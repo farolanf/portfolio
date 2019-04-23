@@ -2,8 +2,5 @@
   "plugins": [
     "eslint:recommended",
     "plugin/react:recommended"
-  ],
-  "parserOptions": {
-    "sourceType": "module"
-  }
+  ]
 }
