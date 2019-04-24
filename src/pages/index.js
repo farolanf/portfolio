@@ -14,10 +14,16 @@ const IndexPage = () => (
           <use href='#text' />
         </clipPath>
         <text id='text' x='50%' y='95%'>creative</text>
-        <image xlinkHref='/bg.svg' x='-15%' y='-230%' clip-path='url(#text-clip)' />
+        <image xlinkHref='/bg.svg' clipPath='url(#text-clip)' />
       </svg>
-      <div className='tagline'>Bringing concepts to life</div>
-      <div className='description'>Every concept has its story. Discover my implementation of concepts from various designers.</div>
+      <h2 className='tagline'>Bringing concepts to life</h2>
+      <div className='description'>Every concept has its story. Discover my implementation of concepts by various designers.</div>
+      <button>Discover my work</button>
+    </section>
+    <section className='concepts'>
+      <header>
+        <h2>Selected concepts</h2>
+      </header>
     </section>
   </Layout>
 )

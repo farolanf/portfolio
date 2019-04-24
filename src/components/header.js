@@ -11,7 +11,7 @@ const Header = ({ siteTitle }) => (
       <div className='right-nav'>
         <a href='#concepts'>Concepts</a>
         <a href='#about'>About</a>
-        <a href='#work'>Work</a>
+        <a href='#work'>Products</a>
         <a href='#contact'>Contact</a>
       </div>
     </nav>
