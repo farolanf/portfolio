@@ -22,9 +22,18 @@ const IndexPage = () => {
   }
   
   const handleMouseUpThemeButton = () => {
-    const enable = Date.now() - themeButtonDownTime > 1000
-    setThemeButtonExpand(enable)
-    setDark(enable)
+    const duration = Date.now() - themeButtonDownTime
+    const enable = duration > 1000
+    const hint = duration < 50
+    if (hint) {
+      setTimeout(() => {
+        setThemeButtonExpand(false)
+        setDark(false)
+      }, 300)
+    } else {
+      setThemeButtonExpand(enable)
+      setDark(enable)
+    }
   }
 
   useEffect(() => {
