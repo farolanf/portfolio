@@ -2,6 +2,7 @@
 
 $breakpoint: 960px;
 $nav-height: 3em;
+$cubic-bezier: cubic-bezier(.7,.01,.48,.99);
 
 @define-mixin container {
   max-width: $breakpoint;
@@ -12,7 +13,7 @@ $nav-height: 3em;
   }
 }
 
-html, body {
+html, body, h1, h2, p {
   margin: 0;
   padding: 0;
 }
@@ -32,7 +33,11 @@ a {
 }
 
 .page-header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, .98);
   border-bottom: 1px solid #eee;
+  z-index: 10;
 }
 
 .main-nav {
@@ -45,7 +50,7 @@ a {
   }
   h1 {
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1em;
     a {
       display: flex;
       align-items: center;
@@ -66,12 +71,18 @@ a {
 }
 
 .intro {
+  position: relative;
+  top: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
   padding: 1.4em 0;
   text-align: center;
+  transition: top 1.8s $cubic-bezier;
   @mixin container;
+  &.out {
+    top: -50rem;
+  }
   .hero {
     width: 100%;
     height: 14em;
@@ -116,9 +127,30 @@ a {
 }
 
 .concepts {
+  position: relative;
+  top: -5em;
   font-size: 1.3em;
   font-weight: bold;
+  transition: top 1.8s $cubic-bezier;
   @mixin container;
+  .out + & {
+    top: -32rem;
+  }
+  header {
+    transition: opacity 1.8s $cubic-bezier;
+    opacity: 0;
+    .out + & {
+      opacity: 1;
+    }
+    h2 {
+      margin: .3em 0;
+    }
+    p {
+      font-size: 1.2rem;
+      font-weight: normal;
+      color: #555;
+    }
+  }
 }
 
 .footer {

@@ -23,6 +23,7 @@ const IndexPage = () => (
     <section className='concepts'>
       <header>
         <h2>Selected concepts</h2>
+        <p>Hover over the cards to learn more about concepts</p>
       </header>
     </section>
   </Layout>
