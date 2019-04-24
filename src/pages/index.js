@@ -10,8 +10,11 @@ const IndexPage = () => (
     <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
     <section className='intro'>
       <svg className='hero'>
-        <object data='/2.svg' type='image/svg+xml' />
-        <text x='50%' y='95%'>creative</text>
+        <clipPath id='text-clip'>
+          <use href='#text' />
+        </clipPath>
+        <text id='text' x='50%' y='95%'>creative</text>
+        <image xlinkHref='/bg.svg' x='-15%' y='-230%' clip-path='url(#text-clip)' />
       </svg>
       <div className='tagline'>Bringing concepts to life</div>
       <div className='description'>Every concept has its story. Discover my implementation of concepts from various designers.</div>
