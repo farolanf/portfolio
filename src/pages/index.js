@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import cn from 'classnames'
 import _ from 'lodash'
+import Helmet from 'react-helmet'
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -9,8 +10,11 @@ import SEO from "../components/seo"
 
 const IndexPage = () => {
   const [out, setOut] = useState()
+  const [dark, setDark] = useState()
 
   const handleClickDiscover = () => setOut(val => !val)
+
+  const handleClickThemeButton = () => setDark(val => !val)
 
   useEffect(() => {
     const onWheel = _.debounce(e => {
@@ -23,6 +27,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
+      <Helmet bodyAttributes={{ class: cn(dark && 'dark-mode') }} />
       <section className={cn('intro', out && 'out')}>
         <svg className='hero'>
           <clipPath id='text-clip'>
@@ -39,6 +44,9 @@ const IndexPage = () => {
         <header>
           <h2>Selected concepts</h2>
           <p>Hover over the cards to learn more about concepts</p>
+          <div className='theme-btn-container'>
+            <button onClick={handleClickThemeButton} /> Enable {dark ? 'light' : 'dark'} mode
+          </div>
         </header>
       </section>
     </Layout>
