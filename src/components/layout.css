@@ -2,7 +2,7 @@
 
 $breakpoint: 960px;
 $nav-height: 3em;
-$cubic-bezier: cubic-bezier(.7,.01,.48,.99);
+$cubic-bezier: cubic-bezier(.7, .0, .6, 1);
 
 @define-mixin container {
   max-width: $breakpoint;
@@ -79,9 +79,10 @@ a {
   padding: 1.4em 0;
   text-align: center;
   transition: top 1.8s $cubic-bezier;
+  z-index: 1;
   @mixin container;
   &.out {
-    top: -50rem;
+    top: -38rem;
   }
   .hero {
     width: 100%;
