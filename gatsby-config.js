@@ -5,6 +5,16 @@ module.exports = {
     author: `Farolan Faisal`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require('postcss-simple-vars'),
+          require('postcss-mixins'),
+          require('postcss-nested'),
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -21,8 +31,8 @@ module.exports = {
         name: `Farolan Faisal`,
         short_name: `Farol`,
         start_url: `/`,
-        background_color: `#FF0000`,
-        theme_color: `#00FF00`,
+        background_color: `#FFFFFF`,
+        theme_color: `#000000`,
         display: `standalone`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
