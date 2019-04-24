@@ -137,19 +137,21 @@ a {
   header {
     transition: opacity 1.8s $cubic-bezier;
     opacity: 0;
-    background-color: white;
     .out + & {
       opacity: 1;
     }
-    h2 {
-      font-size: 2em;
-      font-weight: bold;
-      margin: .3em 0;
+    #concepts-title {
+      height: 2.5em;
+      margin: .1em 0;
+      text {
+        font-size: 2em;
+        font-weight: bold;
+      }
     }
     p {
       font-size: 1.2em;
       font-weight: normal;
-      color: #555;
+      color: #777;
     }
     .theme-btn-container {
       display: flex;
@@ -159,10 +161,12 @@ a {
       font-size: .9em;
       font-weight: bold;
       button {
+        position: relative;
         width: 2.5em;
         height: 2.5em;
         border: none;
         border-radius: 50%;
+        padding: 0;
         margin-right: .3em;
         background-color: black;
         cursor: pointer;
@@ -176,6 +180,34 @@ a {
       }
     }
   }
+}
+
+#theme-btn-svg {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  #theme-btn-circle {
+    cx: 200;
+    cy: 300;
+    r: 1.25em;
+    fill: black;
+    transition: r 2s $cubic-bezier;
+    &.theme-btn-expand {
+      r: 100vmax;
+    }
+  }
+}
+
+#test-clip {
+  font-size: 40px;
+}
+
+.text {
+  dominant-baseline: middle;
+  transform: translateY(50%);
 }
 
 .footer {
