@@ -7,13 +7,15 @@ import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
+    <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
+    <section className='intro'>
+      <svg className='hero'>
+        <object data='/2.svg' type='image/svg+xml' />
+        <text x='50%' y='95%'>creative</text>
+      </svg>
+      <div className='tagline'>Bringing concepts to life</div>
+      <div className='description'>Every concept has its story. Discover my implementation of concepts from various designers.</div>
+    </section>
   </Layout>
 )
 
