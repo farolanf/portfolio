@@ -215,18 +215,18 @@ a {
 
 text.site-title {
   fill: #eee;
+  dominant-baseline: middle;
+  transform: translateY(50%);
 }
 
 text.concepts-title {
+  font-size: 2em;
+  font-weight: bold;
   fill: #ddd;
+  dominant-baseline: text-before-edge;
   &.up {
     transform: translateY(-25rem);
   }
-}
-
-.text {
-  dominant-baseline: middle;
-  transform: translateY(50%);
 }
 
 .footer {

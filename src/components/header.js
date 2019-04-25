@@ -25,7 +25,7 @@ const Header = ({ siteTitle }) => (
     </nav>
     <svg className='full-svg'>
       <g clipPath='url(#theme-btn-clip)'>
-        <text className='site-title text'>{siteTitle}</text>
+        <text className='site-title'>{siteTitle}</text>
       </g>
     </svg>
   </header>

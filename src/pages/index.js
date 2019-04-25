@@ -49,8 +49,10 @@ const IndexPage = () => {
         el2.style.cx = (rect.left + rect.width / 2) + 'px'
         el2.style.cy = (rect.top + rect.height / 2) + 'px'
       } else {
-        el2.setAttribute('x', rect.x)
-        el2.setAttribute('y', rect.y)
+        if (el2.tagName === 'text') {
+          el2.setAttribute('x', rect.x)
+          el2.setAttribute('y', rect.y)
+        }
       }
     })
   }
