@@ -224,6 +224,15 @@ a {
   }
 }
 
+#theme-btn-moon-inner {
+  transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+  opacity: 0;
+  &.up {
+    opacity: 1;
+    transform: translateY(-25rem);
+  }
+}
+
 text.site-title {
   fill: #ddd;
   font-weight: bold;
