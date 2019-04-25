@@ -17,15 +17,19 @@ const Header = ({ siteTitle }) => (
         <Link to="/" className='site-title'>{siteTitle}</Link>
       </h1>
       <div className='right-nav'>
-        <a href='#concepts'>Concepts</a>
-        <a href='#about'>About</a>
-        <a href='#work'>Products</a>
-        <a href='#contact'>Contact</a>
+        <a href='#concepts' className='nav-concepts'>Concepts</a>
+        <a href='#about' className='nav-about'>About</a>
+        <a href='#work' className='nav-products'>Products</a>
+        <a href='#contact' className='nav-contact'>Contact</a>
       </div>
     </nav>
     <svg className='full-svg'>
       <g clipPath='url(#theme-btn-clip)'>
         <text className='site-title'>{siteTitle}</text>
+        <text className='nav-concepts'>Concepts</text>
+        <text className='nav-about'>About</text>
+        <text className='nav-products'>Products</text>
+        <text className='nav-contact'>Contact</text>
       </g>
     </svg>
   </header>

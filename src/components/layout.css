@@ -27,6 +27,7 @@ html {
 body {
   overflow: overlay;
   position: relative;
+  min-height: 100vh;
 }
 
 a {
@@ -59,6 +60,7 @@ a {
   h1 {
     margin: 0;
     font-size: 1em;
+    font-weight: bold;
     a {
       display: flex;
       align-items: center;
@@ -209,14 +211,22 @@ a {
     transform: translateY(-25rem);
   }
   &.theme-btn-expand {
-    r: 100vmax;
+    r: 150vmax;
   }
 }
 
 text.site-title {
-  fill: #eee;
-  dominant-baseline: middle;
+  fill: #ddd;
+  font-weight: bold;
+  dominant-baseline: central;
   transform: translateY(50%);
+}
+
+text.nav-concepts, text.nav-about, text.nav-products, text.nav-contact {
+  font-size: .9em;
+  fill: #bbb;
+  dominant-baseline: central;
+  transform: translate(2.5em, 50%);
 }
 
 text.concepts-title {

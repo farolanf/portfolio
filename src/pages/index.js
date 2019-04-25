@@ -37,7 +37,7 @@ const IndexPage = () => {
   }
 
   const initBinds = () => {
-    const binds = ['.concepts-title', '.theme-btn', '.site-title']
+    const binds = ['.concepts-title', '.theme-btn', '.site-title', '.nav-concepts', '.nav-about', '.nav-products', '.nav-contact']
     binds.forEach(selector => {
       const els = document.querySelectorAll(selector)
       const i = selector === '.theme-btn' ? 1 : 0
