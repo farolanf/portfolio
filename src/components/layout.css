@@ -140,9 +140,11 @@ a {
   position: relative;
   top: -7rem;
   transition: transform 1.8s $cubic-bezier;
-  @mixin container;
   &.up {
     transform: translateY(-25rem);
+  }
+  .concepts-container {
+    @mixin container;
   }
   header {
     transition: opacity 1.8s $cubic-bezier;
@@ -179,6 +181,20 @@ a {
           outline: none;
         }
       }
+    }
+  }
+  .concepts-list {
+    margin-top: 3.5em;
+    margin-left: -120px;
+    white-space: nowrap;
+    overflow: hidden;
+    .concepts-item {
+      display: inline-block;
+      width: 240px;
+      height: 320px;
+      background-color: red;
+      border-radius: 8px;
+      margin-right: 2.6em;
     }
   }
 }

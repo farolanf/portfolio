@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "animejs": "^3.0.1",
     "autoprefixer": "^9.5.1",
     "classnames": "^2.2.6",
     "eslint-plugin-react": "^7.12.4",

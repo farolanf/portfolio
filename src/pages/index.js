@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import cn from 'classnames'
 import _ from 'lodash'
 import Helmet from 'react-helmet'
+import anime from 'animejs'
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -122,14 +123,25 @@ const IndexPage = () => {
       </section>
 
       <section className={cn('concepts', up && 'up')}>
-        <header>
-          <h2 className='concepts-title'>Selected concepts</h2>
-          <p>Hover over the cards to learn more about concepts</p>
-          <div className='theme-btn-container'>
-            <button className='theme-btn' onMouseDown={handleMouseDownThemeButton} onMouseUp={handleMouseUpThemeButton} />
-            Enable {dark ? 'light' : 'dark'} mode
-          </div>
-        </header>
+        <div className='concepts-container'>
+          <header>
+            <h2 className='concepts-title'>Selected concepts</h2>
+            <p>Hover over the cards to learn more about concepts</p>
+            <div className='theme-btn-container'>
+              <button className='theme-btn' onMouseDown={handleMouseDownThemeButton} onMouseUp={handleMouseUpThemeButton} />
+              Enable {dark ? 'light' : 'dark'} mode
+            </div>
+          </header>
+        </div>
+        <div className='concepts-list'>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+          <div className='concepts-item'></div>
+        </div>
       </section>
 
       <svg className='full-svg'>
