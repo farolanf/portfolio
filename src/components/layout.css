@@ -252,7 +252,10 @@ text.concepts-title {
   font-weight: bold;
   fill: #ddd;
   dominant-baseline: text-before-edge;
+  opacity: 0;
+  transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
   &.up {
+    opacity: 1;
     transform: translateY(-25rem);
   }
 }

@@ -72,6 +72,13 @@ const IndexPage = () => {
   }, [])
 
   useEffect(() => {
+    if (!up && dark) {
+      setThemeButtonExpand(false)
+      setDark(false)
+    }
+  }, [up])
+
+  useEffect(() => {
     const el = document.getElementById(dark ? 'moonAnim' : 'moonAnimReverse')
     el.beginElement()
   }, [dark])
