@@ -39,21 +39,22 @@ const IndexPage = () => {
   const initBinds = () => {
     const binds = ['.concepts-title', '.theme-btn', '.site-title', '.nav-concepts', '.nav-about', '.nav-products', '.nav-contact']
     binds.forEach(selector => {
-      const els = document.querySelectorAll(selector)
-      const i = selector === '.theme-btn' ? 1 : 0
-      const el1 = els[i]
-      const el2 = els[1-i]
+      const els = Array.from(document.querySelectorAll(selector))
+      const i = selector === '.theme-btn' ? 2 : 0 // theme-btn reference is third on DOM
+      const el = els.splice(i, 1)[0]
 
-      const rect = el1.getBoundingClientRect()
-      if (selector === '.theme-btn') {
-        el2.style.cx = (rect.left + rect.width / 2) + 'px'
-        el2.style.cy = (rect.top + rect.height / 2) + 'px'
-      } else {
-        if (el2.tagName === 'text') {
-          el2.setAttribute('x', rect.x)
-          el2.setAttribute('y', rect.y)
+      const rect = el.getBoundingClientRect()
+      els.forEach(svgEl => {
+        if (selector === '.theme-btn') {
+          svgEl.style.cx = (rect.left + rect.width / 2) + 'px'
+          svgEl.style.cy = (rect.top + rect.height / 2) + 'px'
+        } else {
+          if (svgEl.tagName === 'text') {
+            svgEl.setAttribute('x', rect.x)
+            svgEl.setAttribute('y', rect.y)
+          }
         }
-      }
+      })
     })
   }
 
@@ -73,6 +74,7 @@ const IndexPage = () => {
           <use href='#theme-btn-circle' />
         </clipPath>
         <circle id='theme-btn-circle' className={cn('theme-btn', up && 'up', themeButtonExpand && 'theme-btn-expand')} />
+        <circle id='theme-btn-dark' className={cn('theme-btn', up && 'up')} />
       </svg>
     }>
       <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />

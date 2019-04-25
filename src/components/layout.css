@@ -211,6 +211,18 @@ a {
   }
 }
 
+#theme-btn-dark {
+  r: 0;
+  fill: #1a1a1a;
+  transition: transform 1.8s $cubic-bezier, r .5s $cubic-bezier;
+  &.up {
+    transform: translateY(-25rem);
+    body.dark-mode & {
+      r: 1.25em;
+    }
+  }
+}
+
 text.site-title {
   fill: #ddd;
   font-weight: bold;
