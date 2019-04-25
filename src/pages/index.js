@@ -62,16 +62,16 @@ const IndexPage = () => {
   }, [])
 
   return (
-    <Layout>
-      <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
-      <Helmet bodyAttributes={{ class: cn(dark && 'dark-mode') }} />
-
+    <Layout before={
       <svg id='theme-btn-svg'>
         <clipPath id='theme-btn-clip'>
           <use href='#theme-btn-circle' />
         </clipPath>
         <circle id='theme-btn-circle' className={cn('theme-btn', out && 'theme-btn-up', themeButtonExpand && 'theme-btn-expand')} />
       </svg>
+    }>
+      <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
+      <Helmet bodyAttributes={{ class: cn(dark && 'dark-mode') }} />
 
       <section className={cn('intro', out && 'out')}>
         <svg className='hero'>
@@ -98,20 +98,9 @@ const IndexPage = () => {
       </section>
 
       <svg id='text-svg'>
-        <g clipPath='url(#theme-btn-clip)' filter='url(#invert)'>
+        <g clipPath='url(#theme-btn-clip)'>
           <text id='concepts-title' className='concepts-title' x='156' y='113'>Selected concepts</text>
         </g>
-      </svg>
-
-      <svg width='0' height='0' viewBox='0 0 0 0'>
-        <defs>
-          <filter id='invert'>
-            <feColorMatrix type='matrix' values='-1 0 0 0 1
-                                                  0 -1 0 0 1
-                                                  0 0 -1 0 1
-                                                  0 0 0 1 0' />
-          </filter>
-        </defs>
       </svg>
     </Layout>
   )

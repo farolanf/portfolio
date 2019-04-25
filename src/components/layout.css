@@ -36,9 +36,21 @@ a {
 .page-header {
   position: sticky;
   top: 0;
-  background-color: rgba(255, 255, 255, .98);
-  border-bottom: 1px solid #eee;
   z-index: 10;
+  #header-svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    rect {
+      x: 0;
+      y: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .main-nav {
@@ -206,8 +218,8 @@ a {
   }
 }
 
-#test-clip {
-  font-size: 40px;
+#concepts-title {
+  fill: #ddd;
 }
 
 .text {

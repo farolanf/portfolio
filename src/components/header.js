@@ -4,6 +4,14 @@ import React from "react"
 
 const Header = ({ siteTitle }) => (
   <header className='page-header'>
+    <svg id='header-svg'>
+      <rect id='header-rect' fill='white' />
+      <line id='header-line' x1='0' y1='100%' x2='100%' y2='100%' stroke='#e8e8e8' />
+      <g clipPath='url(#theme-btn-clip)'>
+        <rect id='header-rect' fill='black' />
+        <line id='header-line' x1='0' y1='100%' x2='100%' y2='100%' stroke='#333' />
+      </g>
+    </svg>
     <nav className='main-nav container'>
       <h1>
         <Link to="/">{siteTitle}</Link>
