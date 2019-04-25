@@ -74,7 +74,7 @@ const IndexPage = () => {
           <use href='#theme-btn-circle' />
         </clipPath>
         <circle id='theme-btn-circle' className={cn('theme-btn', up && 'up', themeButtonExpand && 'theme-btn-expand')} />
-        <circle id='theme-btn-dark' className={cn('theme-btn', up && 'up')} />
+        <circle id='theme-btn-dark' className={cn('theme-btn', up && 'up', themeButtonExpand && 'theme-btn-dark-expand')} />
       </svg>
     }>
       <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
