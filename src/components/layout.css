@@ -25,7 +25,8 @@ html {
 }
 
 body {
-  overflow: overlay;  
+  overflow: overlay;
+  position: relative;
 }
 
 a {
@@ -140,14 +141,6 @@ a {
     .out + & {
       opacity: 1;
     }
-    #concepts-title {
-      height: 2.5em;
-      margin: .1em 0;
-      text {
-        font-size: 2em;
-        font-weight: bold;
-      }
-    }
     p {
       font-size: 1.2em;
       font-weight: normal;
@@ -182,19 +175,31 @@ a {
   }
 }
 
-#theme-btn-svg {
+.concepts-title {
+  margin: .3em 0;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#theme-btn-svg, #text-svg {
   pointer-events: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+#theme-btn-svg {
   #theme-btn-circle {
-    cx: 200;
-    cy: 300;
     r: 1.25em;
     fill: black;
-    transition: r 2s $cubic-bezier;
+    opacity: 0;
+    transition: r 2s $cubic-bezier, transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+    &.theme-btn-up {
+      opacity: 1;
+      transform: translateY(-25rem);
+    }
     &.theme-btn-expand {
       r: 100vmax;
     }

@@ -24,7 +24,7 @@ const IndexPage = () => {
   const handleMouseUpThemeButton = () => {
     const duration = Date.now() - themeButtonDownTime
     const enable = duration > 1000
-    const hint = duration < 50
+    const hint = duration < 75
     if (hint) {
       setTimeout(() => {
         setThemeButtonExpand(false)
@@ -36,7 +36,24 @@ const IndexPage = () => {
     }
   }
 
+  const initBinds = () => {
+    const binds = ['.concepts-title', '.theme-btn']
+    binds.forEach(selector => {
+      const i = selector === '.theme-btn' ? 1 : 0
+      const els = document.querySelectorAll(selector)
+      const rect = els[i].getBoundingClientRect()
+      if (selector === '.theme-btn') {
+        els[1-i].style.cx = (rect.left + rect.width / 2) + 'px'
+        els[1-i].style.cy = (rect.top + rect.height / 2) + 'px'
+      } else {
+        els[1-i].style.left = rect.left + 'px'
+        els[1-i].style.top = rect.top + 'px'
+      }
+    })
+  }
+
   useEffect(() => {
+    initBinds()
     const onWheel = _.debounce(e => {
       setOut(e.deltaY > 0)
     }, 1)
@@ -53,9 +70,7 @@ const IndexPage = () => {
         <clipPath id='theme-btn-clip'>
           <use href='#theme-btn-circle' />
         </clipPath>
-        <circle id='theme-btn-circle' className={themeButtonExpand && 'theme-btn-expand'} />
-        <text x='50%' y='95%' fontSize='120' id='text2'>creative</text>
-        <use href='#text2' filter='url(#invert)' clipPath='url(#theme-btn-clip)' />
+        <circle id='theme-btn-circle' className={cn('theme-btn', out && 'theme-btn-up', themeButtonExpand && 'theme-btn-expand')} />
       </svg>
 
       <section className={cn('intro', out && 'out')}>
@@ -73,16 +88,20 @@ const IndexPage = () => {
 
       <section className='concepts'>
         <header>
-          <svg id='concepts-title'>
-            <text id='concepts-title' className='text'>Selected concepts</text>
-          </svg>
+          <h2 className='concepts-title'>Selected concepts</h2>
           <p>Hover over the cards to learn more about concepts</p>
           <div className='theme-btn-container'>
-            <button onMouseDown={handleMouseDownThemeButton} onMouseUp={handleMouseUpThemeButton} />
+            <button className='theme-btn' onMouseDown={handleMouseDownThemeButton} onMouseUp={handleMouseUpThemeButton} />
             Enable {dark ? 'light' : 'dark'} mode
           </div>
         </header>
       </section>
+
+      <svg id='text-svg'>
+        <g clipPath='url(#theme-btn-clip)' filter='url(#invert)'>
+          <text id='concepts-title' className='concepts-title' x='156' y='113'>Selected concepts</text>
+        </g>
+      </svg>
 
       <svg width='0' height='0' viewBox='0 0 0 0'>
         <defs>
