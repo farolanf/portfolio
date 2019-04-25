@@ -173,12 +173,8 @@ a {
         border-radius: 50%;
         padding: 0;
         margin-right: .3em;
-        background-color: black;
+        background-color: transparent;
         cursor: pointer;
-        transition: background-color 1s $cubic-bezier;
-        .dark-mode & {
-          background-color: #777;
-        }
         &:focus {
           outline: none;
         }
