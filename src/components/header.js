@@ -4,7 +4,7 @@ import React from "react"
 
 const Header = ({ siteTitle }) => (
   <header className='page-header'>
-    <svg id='header-svg'>
+    <svg id='header-svg' className='full-svg'>
       <rect id='header-rect' fill='white' />
       <line id='header-line' x1='0' y1='100%' x2='100%' y2='100%' stroke='#e8e8e8' />
       <g clipPath='url(#theme-btn-clip)'>
@@ -14,7 +14,7 @@ const Header = ({ siteTitle }) => (
     </svg>
     <nav className='main-nav container'>
       <h1>
-        <Link to="/">{siteTitle}</Link>
+        <Link to="/" className='site-title'>{siteTitle}</Link>
       </h1>
       <div className='right-nav'>
         <a href='#concepts'>Concepts</a>
@@ -23,6 +23,11 @@ const Header = ({ siteTitle }) => (
         <a href='#contact'>Contact</a>
       </div>
     </nav>
+    <svg className='full-svg'>
+      <g clipPath='url(#theme-btn-clip)'>
+        <text className='site-title text'>{siteTitle}</text>
+      </g>
+    </svg>
   </header>
 )
 

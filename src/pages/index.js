@@ -9,12 +9,12 @@ import Image from "../components/image"
 import SEO from "../components/seo"
 
 const IndexPage = () => {
-  const [out, setOut] = useState()
+  const [up, setUp] = useState()
   const [dark, setDark] = useState()
   const [themeButtonExpand, setThemeButtonExpand] = useState()
   const [themeButtonDownTime, setThemeButtonDownTime] = useState(0)
 
-  const handleClickDiscover = () => setOut(val => !val)
+  const handleClickDiscover = () => setUp(val => !val)
 
   const handleMouseDownThemeButton = () => {
     setThemeButtonExpand(true)
@@ -37,17 +37,20 @@ const IndexPage = () => {
   }
 
   const initBinds = () => {
-    const binds = ['.concepts-title', '.theme-btn']
+    const binds = ['.concepts-title', '.theme-btn', '.site-title']
     binds.forEach(selector => {
-      const i = selector === '.theme-btn' ? 1 : 0
       const els = document.querySelectorAll(selector)
-      const rect = els[i].getBoundingClientRect()
+      const i = selector === '.theme-btn' ? 1 : 0
+      const el1 = els[i]
+      const el2 = els[1-i]
+
+      const rect = el1.getBoundingClientRect()
       if (selector === '.theme-btn') {
-        els[1-i].style.cx = (rect.left + rect.width / 2) + 'px'
-        els[1-i].style.cy = (rect.top + rect.height / 2) + 'px'
+        el2.style.cx = (rect.left + rect.width / 2) + 'px'
+        el2.style.cy = (rect.top + rect.height / 2) + 'px'
       } else {
-        els[1-i].style.left = rect.left + 'px'
-        els[1-i].style.top = rect.top + 'px'
+        el2.setAttribute('x', rect.x)
+        el2.setAttribute('y', rect.y)
       }
     })
   }
@@ -55,7 +58,7 @@ const IndexPage = () => {
   useEffect(() => {
     initBinds()
     const onWheel = _.debounce(e => {
-      setOut(e.deltaY > 0)
+      setUp(e.deltaY > 0)
     }, 1)
     window.addEventListener('wheel', onWheel)
     return () => window.removeEventListener('onwheel', onWheel)
@@ -63,17 +66,17 @@ const IndexPage = () => {
 
   return (
     <Layout before={
-      <svg id='theme-btn-svg'>
+      <svg className='full-svg'>
         <clipPath id='theme-btn-clip'>
           <use href='#theme-btn-circle' />
         </clipPath>
-        <circle id='theme-btn-circle' className={cn('theme-btn', out && 'theme-btn-up', themeButtonExpand && 'theme-btn-expand')} />
+        <circle id='theme-btn-circle' className={cn('theme-btn', up && 'up', themeButtonExpand && 'theme-btn-expand')} />
       </svg>
     }>
       <SEO title="Portfolio" keywords={[`farolan`, `portfolio`, `gatsby`, `react`]} />
       <Helmet bodyAttributes={{ class: cn(dark && 'dark-mode') }} />
 
-      <section className={cn('intro', out && 'out')}>
+      <section className={cn('intro', up && 'up')}>
         <svg className='hero'>
           <clipPath id='text-clip'>
             <use href='#text' />
@@ -86,7 +89,7 @@ const IndexPage = () => {
         <button onClick={handleClickDiscover}>Discover my work</button>
       </section>
 
-      <section className='concepts'>
+      <section className={cn('concepts', up && 'up')}>
         <header>
           <h2 className='concepts-title'>Selected concepts</h2>
           <p>Hover over the cards to learn more about concepts</p>
@@ -97,9 +100,9 @@ const IndexPage = () => {
         </header>
       </section>
 
-      <svg id='text-svg'>
+      <svg className='full-svg'>
         <g clipPath='url(#theme-btn-clip)'>
-          <text id='concepts-title' className='concepts-title' x='156' y='113'>Selected concepts</text>
+          <text className={cn('concepts-title', up && 'up')}>Selected concepts</text>
         </g>
       </svg>
     </Layout>

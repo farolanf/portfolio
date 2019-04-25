@@ -38,11 +38,6 @@ a {
   top: 0;
   z-index: 10;
   #header-svg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
     z-index: -1;
     rect {
       x: 0;
@@ -93,7 +88,7 @@ a {
   transition: transform 1.8s $cubic-bezier;
   z-index: 1;
   @mixin container;
-  &.out {
+  &.up {
     transform: translateY(-38rem);
   }
   .hero {
@@ -141,17 +136,20 @@ a {
 
 .concepts {
   position: relative;
-  top: -7em;
+  top: -7rem;
   transition: transform 1.8s $cubic-bezier;
   @mixin container;
-  .out + & {
+  &.up {
     transform: translateY(-25rem);
   }
   header {
     transition: opacity 1.8s $cubic-bezier;
     opacity: 0;
-    .out + & {
+    .up + & {
       opacity: 1;
+    }
+    h2 {
+      margin: .3em 0;
     }
     p {
       font-size: 1.2em;
@@ -188,12 +186,11 @@ a {
 }
 
 .concepts-title {
-  margin: .3em 0;
   font-size: 2em;
   font-weight: bold;
 }
 
-#theme-btn-svg, #text-svg {
+.full-svg {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -202,24 +199,29 @@ a {
   height: 100%;
 }
 
-#theme-btn-svg {
-  #theme-btn-circle {
-    r: 1.25em;
-    fill: black;
-    opacity: 0;
-    transition: r 2s $cubic-bezier, transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
-    &.theme-btn-up {
-      opacity: 1;
-      transform: translateY(-25rem);
-    }
-    &.theme-btn-expand {
-      r: 100vmax;
-    }
+#theme-btn-circle {
+  r: 1.25em;
+  fill: black;
+  opacity: 0;
+  transition: r 2s $cubic-bezier, transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+  &.up {
+    opacity: 1;
+    transform: translateY(-25rem);
+  }
+  &.theme-btn-expand {
+    r: 100vmax;
   }
 }
 
-#concepts-title {
+text.site-title {
+  fill: #eee;
+}
+
+text.concepts-title {
   fill: #ddd;
+  &.up {
+    transform: translateY(-25rem);
+  }
 }
 
 .text {
