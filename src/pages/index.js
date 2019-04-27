@@ -76,7 +76,48 @@ const IndexPage = () => {
       setUp(e.deltaY > 0)
     }, 1)
     window.addEventListener('wheel', onWheel)
-    return () => window.removeEventListener('onwheel', onWheel)
+
+    const duration = 800
+    const easing = 'easeInQuad'
+
+    const items = Array.from(document.querySelectorAll('.concepts-item'))
+
+    const onEnter = e => {
+      anime({
+        targets: e.target,
+        scale: 1.1,
+        duration,
+        easing,
+      })
+      anime({
+        targets: items.filter(item => item !== e.target),
+        scale: .9,
+        duration,
+        easing,
+      })
+    }
+
+    const onLeave = e => {
+      anime({
+        targets: items,
+        scale: 1,
+        duration,
+        easing,
+      })
+    }
+
+    items.forEach(item => {
+      item.addEventListener('mouseenter', onEnter)
+      item.addEventListener('mouseleave', onLeave)
+    })
+
+    return () => {
+      window.removeEventListener('onwheel', onWheel)
+      items.forEach(item => {
+        item.removeEventListener('mouseenter', onEnter)
+        item.removeEventListener('mouseleave', onLeave)
+      })
+    }
   }, [])
 
   useEffect(() => {
@@ -86,13 +127,13 @@ const IndexPage = () => {
     }
     anime({
       targets: '.concepts-item',
-      translateY: up ? '-25rem' : '0',
+      top: up ? '-25rem' : '0',
       duration: 1800,
       easing: 'cubicBezier(.7, 0, .6, 1)',
       delay: anime.stagger(150, {
         start: 0,
         direction: up ? 'normal' : 'reverse'
-      })
+      }),
     })
   }, [up])
 

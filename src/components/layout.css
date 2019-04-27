@@ -194,12 +194,14 @@ a {
   margin-left: -120px;
   white-space: nowrap;
   .concepts-item {
+    position: relative;
     display: inline-block;
     width: 240px;
     height: 320px;
     background-color: red;
     border-radius: 8px;
     margin-right: 2.6em;
+    transform-origin: center;
   }
 }
 
