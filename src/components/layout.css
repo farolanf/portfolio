@@ -87,11 +87,12 @@ a {
   align-items: center;
   padding: 1.4em 0;
   text-align: center;
-  transition: transform 1.8s $cubic-bezier;
+  transition: transform 1.8s .5s $cubic-bezier;
   z-index: 1;
   @mixin container;
   &.up {
     transform: translateY(-38rem);
+    transition: transform 1.8s $cubic-bezier;
   }
   .hero {
     width: 100%;
@@ -139,18 +140,20 @@ a {
 .concepts {
   position: relative;
   top: -7rem;
-  transition: transform 1.8s $cubic-bezier;
+  transition: transform 1.8s .5s $cubic-bezier;
   &.up {
     transform: translateY(-25rem);
+    transition: transform 1.8s $cubic-bezier;
   }
   .concepts-container {
     @mixin container;
   }
   header {
-    transition: opacity 1.8s $cubic-bezier;
+    transition: opacity 1.8s .5s $cubic-bezier;
     opacity: 0;
     .up + & {
       opacity: 1;
+      transition: opacity 1.8s $cubic-bezier;
     }
     h2 {
       margin: .3em 0;
@@ -183,19 +186,20 @@ a {
       }
     }
   }
-  .concepts-list {
-    margin-top: 3.5em;
-    margin-left: -120px;
-    white-space: nowrap;
-    overflow: hidden;
-    .concepts-item {
-      display: inline-block;
-      width: 240px;
-      height: 320px;
-      background-color: red;
-      border-radius: 8px;
-      margin-right: 2.6em;
-    }
+}
+.concepts-list {
+  position: relative;
+  top: -7rem;
+  margin-top: 3.4rem;
+  margin-left: -120px;
+  white-space: nowrap;
+  .concepts-item {
+    display: inline-block;
+    width: 240px;
+    height: 320px;
+    background-color: red;
+    border-radius: 8px;
+    margin-right: 2.6em;
   }
 }
 
@@ -217,10 +221,11 @@ a {
   r: 1.25em;
   fill: black;
   opacity: 0;
-  transition: r 2s $cubic-bezier, transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+  transition: r 2s .5s $cubic-bezier, transform 1.8s .5s $cubic-bezier, opacity 1.8s .5s $cubic-bezier;
   &.up {
     opacity: 1;
     transform: translateY(-25rem);
+    transition: r 2s $cubic-bezier, transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
   }
   &.theme-btn-expand {
     r: 150vmax;
@@ -231,9 +236,10 @@ a {
   r: 1.25em;
   fill: #1a1a1a;
   opacity: 0;
-  transition: transform 1.8s $cubic-bezier, opacity 1.5s $cubic-bezier;
+  transition: transform 1.8s .5s $cubic-bezier, opacity 1.5s .5s $cubic-bezier;
   &.up {
     transform: translateY(-25rem);
+    transition: transform 1.8s $cubic-bezier, opacity 1.5s $cubic-bezier;
     &.theme-btn-dark-expand {
       opacity: 1;
     }
@@ -241,11 +247,12 @@ a {
 }
 
 #theme-btn-moon-inner {
-  transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+  transition: transform 1.8s .5s $cubic-bezier, opacity 1.8s .5s $cubic-bezier;
   opacity: 0;
   &.up {
     opacity: 1;
     transform: translateY(-25rem);
+    transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
   }
 }
 
@@ -269,10 +276,11 @@ text.concepts-title {
   fill: #ddd;
   dominant-baseline: text-before-edge;
   opacity: 0;
-  transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
+  transition: transform 1.8s .5s $cubic-bezier, opacity 1.8s .5s $cubic-bezier;
   &.up {
     opacity: 1;
     transform: translateY(-25rem);
+    transition: transform 1.8s $cubic-bezier, opacity 1.8s $cubic-bezier;
   }
 }
 

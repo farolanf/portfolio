@@ -84,6 +84,16 @@ const IndexPage = () => {
       setThemeButtonExpand(false)
       setDark(false)
     }
+    anime({
+      targets: '.concepts-item',
+      translateY: up ? '-25rem' : '0',
+      duration: 1800,
+      easing: 'cubicBezier(.7, 0, .6, 1)',
+      delay: anime.stagger(150, {
+        start: 0,
+        direction: up ? 'normal' : 'reverse'
+      })
+    })
   }, [up])
 
   useEffect(() => {
@@ -140,16 +150,14 @@ const IndexPage = () => {
             </div>
           </header>
         </div>
-        <div className='concepts-list'>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-          <div className='concepts-item'></div>
-        </div>
       </section>
+      <div className='concepts-list'>
+        <div className='concepts-item'></div>
+        <div className='concepts-item'></div>
+        <div className='concepts-item'></div>
+        <div className='concepts-item'></div>
+        <div className='concepts-item'></div>
+      </div>
 
       <svg className='full-svg'>
         <g clipPath='url(#theme-btn-clip)'>
